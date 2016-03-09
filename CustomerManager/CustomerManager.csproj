@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -22,6 +23,8 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <NuGetPackageImportStamp>fbf80c70</NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -125,24 +128,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\customersApp\animations\listAnimations.js" />
-    <Content Include="app\app.js" />
-    <Content Include="app\customersApp\controllers\loginController.js" />
-    <Content Include="app\customersApp\controllers\aboutController.js" />
-    <Content Include="app\customersApp\controllers\customers\customerEditController.js" />
-    <Content Include="app\customersApp\controllers\customers\customerOrdersController.js" />
-    <Content Include="app\customersApp\controllers\customers\customersController.js" />
-    <Content Include="app\customersApp\controllers\navbarController.js" />
-    <Content Include="app\customersApp\controllers\orders\orderChildController.js" />
-    <Content Include="app\customersApp\controllers\orders\ordersController.js" />
-    <Content Include="app\customersApp\directives\wcUnique.js" />
-    <Content Include="app\customersApp\filters\nameCityStateFilter.js" />
-    <Content Include="app\customersApp\filters\nameProductFilter.js" />
     <Content Include="app\customersApp\partials\modal.html" />
-    <Content Include="app\customersApp\services\authService.js" />
-    <Content Include="app\customersApp\services\httpInterceptors.js" />
-    <Content Include="app\customersApp\services\modalService.js" />
-    <Content Include="app\customersApp\services\routeResolver.js" />
     <Content Include="app\customersApp\views\about.html" />
     <Content Include="app\customersApp\views\customers\customerEdit.html" />
     <Content Include="app\customersApp\views\customers\customerOrders.html" />
@@ -150,12 +136,6 @@
     <Content Include="app\customersApp\views\login.html" />
     <Content Include="app\customersApp\views\orders\orders.html" />
     <Content Include="app\customersApp\views\orders\ordersTable.html" />
-    <Content Include="app\customersApp\services\config.js" />
-    <Content Include="app\customersApp\services\customersBreezeService.js" />
-    <Content Include="app\customersApp\services\customersService.js" />
-    <Content Include="app\customersApp\services\dataService.js" />
-    <Content Include="app\wc.directives\directives\menuHighlighter.js" />
-    <Content Include="app\wc.directives\directives\wcOverlay.js" />
     <Content Include="Content\animations.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.icon-large.min.css" />
@@ -227,11 +207,40 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\customersApp\animations\listAnimations.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\aboutController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\customers\customerEditController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\customers\customerOrdersController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\customers\customersController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\loginController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\navbarController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\orders\orderChildController.ts" />
+    <TypeScriptCompile Include="app\customersApp\controllers\orders\ordersController.ts" />
+    <TypeScriptCompile Include="app\customersApp\directives\wcUnique.ts" />
+    <TypeScriptCompile Include="app\customersApp\filters\nameCityStateFilter.ts" />
+    <TypeScriptCompile Include="app\customersApp\filters\nameProductFilter.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\authService.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\config.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\customersBreezeService.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\customersService.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\dataService.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\httpInterceptors.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\modalService.ts" />
+    <TypeScriptCompile Include="app\customersApp\services\routeResolver.ts" />
+    <TypeScriptCompile Include="app\wc.directives\directives\menuHighlighter.ts" />
+    <TypeScriptCompile Include="app\wc.directives\directives\wcOverlay.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
